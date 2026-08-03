@@ -10,6 +10,7 @@ requires-python = ">=3.14"
 dependencies = [
     "claude-agent-sdk==0.1.50",
     "python-dotenv>=1.2.2",
+    "qq-botpy==1.2.1",
 ]
 
 [project.scripts]
