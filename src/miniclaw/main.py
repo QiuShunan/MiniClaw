@@ -1,11 +1,13 @@
-import asyncio
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 from dotenv import load_dotenv
+load_dotenv(override=True)
+
+import asyncio
 import os
+from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 import botpy 
 from botpy.message import C2CMessage
 
-load_dotenv(override=True)
+
 
 async def chat(message: str) -> str:
     """发送消息给 Claude Agent，返回完整回复。"""
@@ -41,19 +43,18 @@ class MiniClawQQBot(botpy.Client):
         user_id = message.author.user_openid
 
         print(f"[收到消息] 用户 {user_id}: {user_message}")
+        response = await chat(user_message)
 
-        await message.reply(
-            content=f"我收到了你的消息：{user_message}"
-        )
+        print(f"[AI回复] {response}")
 
-async def main():
-    response = await chat("查看项目有哪些文件")
-    print(response)
+        await message.reply(content=response)
+
+# async def main():
+#     response = await chat("查看项目有哪些文件")
+#     print(response)
 
 
-if __name__ == "__main__":
-    # asyncio.run(main())
-
+def main():
     intents = botpy.Intents(public_messages=True)
     client = MiniClawQQBot(intents=intents)
     client.run(

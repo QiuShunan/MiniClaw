@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "‘qiushunan’", email = "‘2383370396@qq.com’" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.10,<3.14"
 dependencies = [
     "claude-agent-sdk==0.1.50",
     "python-dotenv>=1.2.2",
