@@ -1,0 +1,20 @@
+[project]
+name = "miniclaw"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "‘qiushunan’", email = "‘2383370396@qq.com’" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "claude-agent-sdk==0.1.50",
+    "python-dotenv>=1.2.2",
+]
+
+[project.scripts]
+miniclaw = "miniclaw.main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
